@@ -1,0 +1,1130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="joe mama"></ModulePrefs>
+  <Content type="html">
+    <![CDATA[
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,300&display=swap');
+        body{
+          background: #212121;
+          overflow-x: hidden;
+          overflow-y: hidden;
+        }
+        *{
+          padding: 0;
+          margin: 0;
+        }
+        #loadingaluminum{
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          position: absolute;
+          text-align: center;
+          opacity: 0;
+          transition: opacity .5s, color .25s;
+          user-select: none;
+          
+        }
+        #editor{
+          bottom: 38px;
+          right: 0;
+          position: absolute;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity .25s;
+        }
+        .aluminumbutton{
+          color: white;
+          font-family: 'Roboto', sans-serif;
+          padding: 10px;
+          font-size: 15px;
+          width: 160px;
+          background: #333333;
+          border: 0;
+          margin: 0 auto;
+          display: inline;
+          transition: background .25s;
+        }
+        .aluminumbutton:hover{
+          background: #292929;
+        }
+        .aluminumbutton:active{
+          background: #242424;
+        }
+        .aluminumsidebutton{
+          color: white;
+          font-family: 'Roboto', sans-serif;
+          padding: 10px;
+          font-size: 15px;
+          width: 160px;
+          background: #141414;
+          border: 0;
+          margin: 0 auto;
+          display: inline;
+          transition: background .25s;
+        }
+        .aluminumsidebutton:hover{
+          background: #0a0a0a;
+        }
+        .aluminumsidebutton:active{
+          background: #0a0a0a;
+        }
+        .unblockerbutton{
+          color: white;
+          font-family: 'Roboto', sans-serif;
+          padding: 10px;
+          font-size: 15px;
+          width: 160px;
+          background: #63c44b;
+          border: 0;
+          transition: background .25s;
+        }
+        .unblockerbutton:hover{
+          background: #509c3d;
+        }
+        .unblockerbutton:active{
+          background: #448733;
+        }
+        h1, h2, h3, h4, h5, p{
+          color: white;
+          font-family: 'Roboto', sans-serif;
+        }
+        .scriptmenubutton{
+          font-family: 'Roboto', sans-serif;
+          font-size: 28.5px;
+          color: white;
+          padding: 8px;
+          border-radius: 5px;
+        }
+        .CodeMirror{
+          font-size: 14px;
+        }
+        #scriptsgui{
+          opacity: 0;
+          pointer-events: none;
+          z-index: 99999999999999999;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          width: 650px;
+          height: 450px;
+          transition: opacity .25s;
+        }
+        #guiinner{
+          z-index: 99999999999999999;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          background: #232323;
+          opacity: 1;
+          border-radius: 15px;
+          padding: 5px;
+          text-align: center;
+          
+        }
+        .centertext{
+          text-align: center;
+          vertical-align: middle;
+          line-height: 75px; 
+        }
+        #guiinner2{
+          text-align: center;
+        }
+        #hamborgor{
+          cursor: pointer; user-select: none; font-size: 35px; transition: background .05s; background: #383838; padding: 5px; border-radius: 5px; border: 0;
+        }
+        #hamborger:hover{
+          background: #545252;
+          
+        }
+        #hamborgor:active{
+          background: #696666;
+        }
+        #premium{
+          color: yellow; cursor: pointer; user-select: none; font-size: 35px; transition: background .05s; background: #383838; padding: 5px; border-radius: 5px; border: 0;
+        }
+        #premium:active{
+          background: #696666;
+        }
+        .scriptsbutton{
+          border-radius: 7.5px;
+          width: 350px;
+          height: 175px;
+          font-family: 'Roboto', sans-serif;
+          border: 0;
+          font-size: 18px;
+          position: relative;
+          transition: width .25s, height .25s;
+          display: inline-block;
+          margin: 5px;
+        }
+        .scriptsbutton:hover{
+          width: 355px;
+          height: 180px;
+          cursor: pointer;
+        }
+        .scriptsbutton2{
+          border-radius: 7.5px;
+          width: 200px;
+          height: 125px;
+          font-family: 'Roboto', sans-serif;
+          border: 0;
+          font-size: 18px;
+          position: relative;
+          transition: width .25s, height .25s;
+          display: inline-block;
+          margin: 5px;
+        }
+        .scriptsbutton2:hover{
+          width: 205px;
+          height: 130px;
+          cursor: pointer;
+        }
+        .funnymargin{
+          margin: 1.5px 0px;
+        }
+        .premiumbutton{
+          font-family: 'Roboto', sans-serif;
+          font-size: 27.5px;
+          color: white;
+          width: 150px;
+          border: 0;
+          border-radius: 5px;
+          padding: 5px;
+          transition: font-size .25s;
+        }
+        .premiumbutton:hover{
+          cursor: pointer;
+          font-size: 25px;
+        }
+        input{
+          background: #353535;
+          border: 0;
+          outline: 0;
+          padding: 6.5px;
+          font-size: 18.5px;
+          font-family: 'Roboto', sans-serif;
+          color: white;
+          width: 300px;
+          border-radius: 10px;
+        }
+        select {
+          appearance: none;
+          outline: 0;
+          width: 450px;
+          height: 35px;
+          color: black;
+          cursor: pointer;
+          padding: 8.5px;
+          font-size: 15px;
+          border-radius: 3px;
+        }
+      </style>
+      <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css"/>
+        <title>Aluminum</title>
+        <link rel="shortcut icon" href="https://talktobobby.replit.app/images/externalApps/aluminum.png" type="image/png" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/mbo.min.css" integrity="sha512-od4iTUzGO7D57XePY29GbKmPNZTDtZcSSTFOLg9Bse/uA8dznrj2wP+GgB72zmoOj6M/M1rXBip5bT8jvbgMlg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      </head>
+      <body>
+        <div id="loadingaluminum">
+          <span><img src="https://talktobobby.replit.app/images/externalApps/aluminum.png" height="100px"/></span>
+          <br>
+          <h3 id="loadingtext">
+            Loading Workspace...
+          </h3>
+        </div>
+        <br>
+        <h5 id="introcredits" style="transition: opacity .25s; user-select: none; bottom: 0; left: 50%; transform: translate(-50%, -50%); position: absolute; font-weight: light; color: #616161;">
+          Developed by DaxCodes
+        </h5>
+        
+        <div id="workspace" style="opacity: 0; pointer-events: none; margin: 0; position: absolute; bottom: 0; right: 0; transition: opacity .25s;">
+          <button onclick="executeCode()" id="executebutton" class="aluminumbutton">
+            Execute
+          </button>
+          <button onclick="hidelecode()" id="hidebutton" class="aluminumbutton">
+            Hide Code
+          </button>
+        </div>
+        
+        
+        <!-- sidebar stuff -->
+        <div id="sidebar" style="z-index: 239849249792374982394342; padding: 5px; color: white; opacity: 0; pointer-events: none; margin: auto; position: absolute; height: 100%; width: 45px; top: 0; left: 0; transition: opacity .25s; background: #2b2b2b;">
+          <span onclick="openscripthub()" id="hamborgor" class="funnymargin material-symbols-outlined">menu</span>
+          <br>
+          <span onclick="openpremium()" id="premium" class="funnymargin material-symbols-outlined">workspace_premium</span>
+        </div>
+        <div id="editor"></div>
+        <div id="sidebar2" style="overflow-y: auto; overflow-x: hidden; padding: 5px; background: rgba(25, 26, 25, .4); z-index: 239849249792374982394342; color: white; opacity: 0; pointer-events: none; margin: auto; position: absolute; height: 100%; width: 100%; top: 50%; transform: translate(-50%, -50%); left: 50%; transition: opacity .25s;">
+          <br><br>
+          <h1 style="font-size: 35px; text-align: center;">
+            Script Hub
+          </h1>
+          <div onclick="selectscript('caraxlev8')" style="background-position: center; background-repeat: no-repeat; background-color: #4bfa97; background-size: 300px 150px; background-image: url('https://externalapps.replit.app/scripts/caraxlev8.png');" class="scriptsbutton">
+            <p style="background: #25b061; padding: 3px; border-radius: 5px; margin: 5px; bottom: 0; left: 0; position: absolute;">
+              Car Axle Client v8
+            </p>
+          </div>
+          <div onclick="selectscript('caraxlev9')" style="background-position: center; background-repeat: no-repeat; background-color: #f76957; background-size: 300px 150px; background-image: url('https://externalapps.replit.app/scripts/caraxlev9.png');" class="scriptsbutton">
+            <p style="background: #a8493d; padding: 3px; border-radius: 5px; color: white; margin: 5px; bottom: 0; left: 0; position: absolute;">
+              Car Axle Client v9
+            </p>
+          </div>
+          <div onclick="selectscript('minecraft')" style="background-position: center; background-repeat: no-repeat; background-color: #111111; background-size: 150px 150px; background-image: url('https://externalapps.replit.app/games/mcsimpleicon.png');" class="scriptsbutton">
+            <p style="margin: 5px; bottom: 0; left: 0; position: absolute;">
+              Minecraft
+            </p>
+          </div>
+          <div onclick="selectscript('win11')" style="background-position: center; background-repeat: no-repeat; background-color: #105ab5; background-size: 100px 100px; background-image: url('https://externalapps.replit.app/popularicons/win11.png');" class="scriptsbutton">
+            <p style="margin: 5px; bottom: 0; left: 0; position: absolute;">
+              Windows 11
+            </p>
+          </div>
+          <br><br><br>
+          <h1 style="text-align: center;">
+            We have removed all unblockers being provided on Aluminum.
+          </h1>
+          <a href="/removedunblockers.html">
+            <h2 style="text-align: center; color: blue;">
+              Learn More.
+            </h2>
+          </a>
+          <!--<div onclick="console.log('BROKEN ATM')" style="background-position: center; background-repeat: no-repeat; background-color: #793396; background-size: cover; background-image: url('https://externalapps.replit.app/scripts/shadowbrowser.png');" class="scriptsbutton">
+            <p style="margin: 5px; bottom: 0; left: 0; position: absolute;">
+              Shadow Browser [BROKEN ATM]
+            </p>
+          </div>-->
+        </div>
+        <div id="premiummenu" style="overflow-y: auto; overflow-x: hidden; padding: 5px; background: rgba(25, 26, 25, .4); z-index: 239849249792374982394342; color: white; opacity: 0; pointer-events: none; margin: auto; position: absolute; height: 100%; width: 100%; top: 50%; transform: translate(-50%, -50%); left: 50%; transition: opacity .25s;">
+          <div id="notloggedin" style="opacity: 0; pointer-events: none;">
+            <br><br>
+            <div style="text-align: center;">
+              <img src="https://externalapps.replit.app/aluminum/goldaluminum.png" height="165px"/>
+            </div>
+            <h1 style="color: yellow; font-size: 25px; text-align: center;">
+              Aluminum Premium
+            </h1>
+            <div style="text-align: center; margin: 0;">
+              <h2 style="color: #4ad94a; margin: 5px; padding: 5px;">
+                - Premium game sites with over 100+ games!
+              </h2>
+              <h2 style="color: #4ad94a; margin: 5px; padding: 5px;">
+                - Supports the development of Aluminum in general
+              </h2>
+              <h2 style="color: #4ad94a; margin: 5px; padding: 5px;">
+                - More perks in the near future...
+              </h2>
+              <h2 style="color: white;">
+                Only for $2.99!
+              </h2>
+              <br>
+              <p>
+                NOTE: You CANNOT share your license key with anybody! Doing so will get your license key blacklisted, requiring you to pay again.
+              </p>
+              <br><br>
+              <button onclick="closepremium()" class="premiumbutton" style="background: #e3513d">
+                Close
+              </button>
+              <button onclick="promptlicense()" class="premiumbutton" style="background: #53e33d">
+                Login
+              </button>
+            </div>
+          </div>
+          <div id="loggedin" style="text-align: center; opacity: 0; pointer-events: none;">
+            <br>
+            <div style="border-radius: 10px; background: rgba(25, 26, 25, .7); margin: 0px; top: 0; right: 0; padding: 20px; text-align: center;">
+              <h1 style="font-size: 25px;">
+                Premium Games
+              </h1>
+              <br>
+              
+              <div onclick="coolmathgames()" style="background-position: center; background-repeat: no-repeat; background-color: black; background-size: 100px 100px; background-image: url('https://play-lh.googleusercontent.com/GOSj_Oh_taPXIomBMiiTRNM1Mg3LP9qKJ4gRIuCRV2jQ0oa9VUIC2SHAiY8GL09j6ts');" class="scriptsbutton2">
+                <p style="color: white; margin: 5px; bottom: 0; left: 0; position: absolute;">
+                  Coolmathgames
+                </p>
+              </div>
+              <div onclick="crazygames()" style="background-position: center; background-repeat: no-repeat; background-color: white; background-size: 100px 100px; background-image: url('https://upload.wikimedia.org/wikipedia/commons/f/f3/Crazygames_jpg_logo.jpg');" class="scriptsbutton2">
+                <p style="color: black; margin: 5px; bottom: 0; left: 0; position: absolute;">
+                  CrazyGames [BROKEN ATM]
+                </p>
+              </div>
+              <div onclick="selenite()" style="background-position: center; background-repeat: no-repeat; background-color: purple; background-size: 100px 100px; background-image: url('https://externalapps.replit.app/scripts/selenite.png');" class="scriptsbutton2">
+                <p style="color: white; margin: 5px; bottom: 0; left: 0; position: absolute;">
+                  Selenite
+                </p>
+              </div>
+              <div onclick="aster()" style="background-position: center; background-repeat: no-repeat; background-color: black; background-size: 100px 100px; background-image: url('https://cdn.bio.link/uploads/thumbnails/2024-04-05/9g6LgYbRF3d5aMWNJAe0eNMmlfnmvZiU.png');" class="scriptsbutton2">
+                <p style="color: white; margin: 5px; bottom: 0; left: 0; position: absolute;">
+                  Aster
+                </p>
+              </div>
+              <div onclick="cookieclicker()" style="background-position: center; background-repeat: no-repeat; background-color: lightblue; background-size: cover; background-image: url('https://cdn.akamai.steamstatic.com/steam/apps/1454400/capsule_616x353.jpg?t=1709871269');" class="scriptsbutton2">
+                <p style="color: white; margin: 5px; bottom: 0; left: 0; position: absolute;">
+                  Cookie Clicker
+                </p>
+              </div>
+              <div onclick="pizzatower()" style="background-position: center; background-repeat: no-repeat; background-color: white; background-size: cover; background-image: url('https://cdn.akamai.steamstatic.com/steam/apps/2231450/header.jpg?t=1674756021');" class="scriptsbutton2">
+                <p style="color: white; margin: 5px; bottom: 0; left: 0; position: absolute;">
+                  Pizza Tower
+                </p>
+              </div>
+              <div onclick="fnf()" style="background-position: center; background-repeat: no-repeat; background-color: white; background-size: cover; background-image: url('https://picon.ngfiles.com/770000/flash_770371_card.webp?f1669676496');" class="scriptsbutton2">
+                <p style="color: white; margin: 5px; bottom: 0; left: 0; position: absolute;">
+                  Friday Night Funkin'
+                </p>
+              </div>
+              <div onclick="gd()" style="background-position: center; background-repeat: no-repeat; background-color: white; background-size: cover; background-image: url('https://cdn.akamai.steamstatic.com/steam/apps/322170/capsule_616x353.jpg?t=1703006148');" class="scriptsbutton2">
+                <p style="color: white; margin: 5px; bottom: 0; left: 0; position: absolute;">
+                  Geometry Dash
+                </p>
+              </div>
+            </div>
+            <div style="border-radius: 10px; background: rgba(25, 26, 25, .7); margin: 0px; top: 0; right: 0; padding: 20px; text-align: center;">
+              <h1 style="font-size: 25px;">
+                Premium Apps
+              </h1>
+              <br>
+              
+              <div onclick="discord()" style="background-position: center; background-repeat: no-repeat; background-color: #222222; background-size: 100px 75px; background-image: url('https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png');" class="scriptsbutton2">
+                <p style="color: white; margin: 5px; bottom: 0; left: 0; position: absolute;">
+                  Discord [BROKEN ATM]
+                </p>
+              </div>
+              <div onclick="netflix()" style="background-position: center; background-repeat: no-repeat; background-color: black; background-size: cover; background-image: url('https://images.ctfassets.net/y2ske730sjqp/5QQ9SVIdc1tmkqrtFnG9U1/de758bba0f65dcc1c6bc1f31f161003d/BrandAssets_Logos_02-NSymbol.jpg?w=940');" class="scriptsbutton2">
+                <p style="color: white; margin: 5px; bottom: 0; left: 0; position: absolute;">
+                  Netflix [BROKEN ATM]
+                </p>
+              </div>
+            </div>
+            <br><br>
+            <button onclick="closepremium()" style="background: #c9614f" class="premiumbutton">
+              Close
+            </button>
+          </div>
+          
+        </div>
+        <div id="licenseprompt" style="transition: opacity .25s; opacity: 0; pointer-events: none; z-index: 723472347432674643274368432684326432342; border-radius: 15px; top: 50%; left: 50%; position: absolute; text-align: center; background: #3b3b3b; width: 500px; height: 200px; padding: 5px; transform: translate(-50%, -50%);">
+          <div style="top: 50%; left: 50%; position: absolute; text-align: center; transform: translate(-50%, -50%);">
+            <h1>
+              License Key:
+            </h1>
+            <br>
+            <input id="licenseinput" placeholder="1A2B3C-JOE"/>
+            <br>
+            <br>
+            <button onclick="checkLicenseKey()" class="premiumbutton" style="background: #53e33d;">
+              Login
+            </button>
+          </div>
+          
+        </div>
+        
+        
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js"></script>
+        <script>
+          if(localStorage.getItem("loggedin") == undefined){
+            localStorage.setItem("loggedin", 0)
+          }
+      
+          var recentcode = "";
+          var language = "javascript"; // programming language setting
+          var winH = window.innerHeight;
+          var winW = window.innerWidth;
+      
+          var editor = CodeMirror(document.getElementById('editor'), {
+            lineNumbers: true,
+            tabSize: 2,
+            value: `console.log("Thanks for using Aluminum!")`,
+            mode: language,
+            lineWrapping: true,
+            theme: 'mbo'
+          });
+          editor.setSize(winW - 55, winH - 38)
+      
+          var loadingtext = document.getElementById("loadingtext");
+          var loading = document.getElementById("loadingaluminum");
+          var loadingcredit = document.getElementById("introcredits");
+          var workspace = document.getElementById("workspace");
+          var sidebar = document.getElementById("sidebar");
+          var sidebar2 = document.getElementById("sidebar2");
+          var editorr = document.getElementById("editor");
+          var premiummenu = document.getElementById("premiummenu");
+          var licenseprompt = document.getElementById("licenseprompt");
+      
+          var executebutton = document.getElementById("executebutton");
+          var hidebutton = document.getElementById("hidebutton");
+      
+          //var executorbutton = document.getElementById("executorbutton");
+          //var scripthubbutton = document.getElementById("scripthubbutton");
+      
+          // scripts menu setup
+      
+          // button stylng (i suck at css wahhh)
+          executebutton.style.width = winW / 2 - 2 - 27.5
+          hidebutton.style.width = winW / 2 - 2 - 27.5
+          //executorbutton.style.width = winW - winW / 32 * 24 - 5
+          //scripthubbutton.style.width = winW - winW / 32 * 24 - 5
+      
+          // workspace settings
+          var codehidden = false;
+          var currentcode;
+          var thecodethatishiddenarchived;
+      
+          setTimeout(function(){
+            loading.style.opacity = 1;
+            setTimeout(function(){
+              loadingtext.innerHTML = "Fetching APIs...";
+                setTimeout(function(){
+                  loadingtext.innerHTML = "Done!";
+                  loadingtext.style.color = "lime";
+                  finishload()
+              },2000)
+            },1500)
+          }, 500)
+      
+          function finishload(){
+            /*var win = window.open('about:blank');
+            win.localStorage.setItem("iamsuchacoolpersonLOOOL",32948798242984984294823492423294);
+            var testttt = document.createElement("iframe")
+            testttt.src = "https://google.com/search?igu=1"
+            testttt.style = "width: 100%; height: 100%;";
+            testttt.id = "woah"
+            win.document.body.appendChild(testttt);
+            win.alert(console.log("asdef"))*/
+            setTimeout(function(){
+              loading.style.opacity = 0;
+              loadingtext.style.opacity = 0;
+              loadingcredit.style.opacity = 0;
+              workspace.style.opacity = 1;
+              workspace.style.pointerEvents = 'all';
+              editorr.style.opacity = 1;
+              editorr.style.pointerEvents = 'all';
+              sidebar.style.opacity = 1;
+              sidebar.style.pointerEvents = 'all';
+              /*if(localStorage.getItem("update") == 0){
+                localStorage.setItem("update", 1);
+                whatsnew.style.opacity = 1;
+                whatsnew.style.pointerEvents = 'none';
+              }*/
+            }, 750)
+      
+          }
+      
+          function executeCode(){
+            if(codehidden == false){
+              currentcode = editor.getValue();
+              var win = window.open('about:blank');
+              var script = document.createElement('script');
+              script.textContent = currentcode; 
+              win.document.head.appendChild(script)
+            } else {
+              var win = window.open('about:blank');
+              var script = document.createElement('script');
+              script.textContent = thecodethatishiddenarchived; 
+              win.document.head.appendChild(script)
+            }
+      
+          }
+      
+          function hidelecode(){
+            if(codehidden == false){
+              codehidden = true;
+              currentcode = editor.getValue();
+              thecodethatishiddenarchived = editor.getValue();
+              editor.getDoc().setValue('// Code is currently hidden.');
+            } else {
+              codehidden = false;
+              editor.getDoc().setValue(currentcode);
+            }
+      
+          }
+      
+          function scriptsss(){
+            //var scripttoimport = prompt("Script To Import (preset.txt):")
+      
+            /*if (scripttoimport == "caraxle.txt"){
+              editor.getDoc().setValue(`var inject = document.createElement('script'); inject.src = 'https://cdn.jsdelivr.net/gh/DaxCodes/caraxle-nonbookmark/inject.js'; document.body.appendChild(inject);
+      
+              // created by penguinify`)
+            }
+            if (scripttoimport == "inspectpro.txt"){
+              editor.getDoc().setValue(`var inject = document.createElement('script'); inject.src = 'https://cdn.jsdelivr.net/gh/DaxCodes/inspect/inject.js'; document.body.appendChild(inject);
+      
+              // created by daxcodes (aluminum creator lol)`)
+            }*/
+            return
+          }
+          function selectscript(script){
+            if (script == "caraxlev8"){
+              editor.getDoc().setValue(`var inject = document.createElement('script'); inject.src = 'https://cdn.jsdelivr.net/gh/DaxCodes/caraxle-nonbookmark/inject.js'; document.body.appendChild(inject);
+      
+              // created by penguinify`)
+            }
+            if (script == "caraxlev9"){
+              editor.getDoc().setValue(`var inject = document.createElement('script'); inject.src = 'https://cdn.jsdelivr.net/gh/DaxCodes/caraxlev9-nonbookmarklet/inject.js'; document.body.appendChild(inject);
+      
+              // v9 created by penguinify`)
+            }
+            if (script == "shadowbrowser"){
+              editor.getDoc().setValue(`var a = document.createElement("iframe"); a.src = 'https://veryshort.qualitypoolsboulder.com/'; a.style='top: 0; left: 0; width: 100%; outline: none; border: 0; height: 100%; position: absolute;'; document.body.appendChild(a);`)
+            }
+            if (script == "interstellar"){
+              editor.getDoc().setValue(`var a = document.createElement("iframe"); a.src = 'https://representative.cioconsultores.cl/'; a.style='top: 0; left: 0; width: 100%; outline: none; border: 0; height: 100%; position: absolute;'; document.body.appendChild(a);`)
+            }
+            if (script == "rammerhead"){
+              editor.getDoc().setValue(`var a = document.createElement("iframe"); a.src = 'https://you.jcho.com/'; a.style='top: 0; left: 0; width: 100%; outline: none; border: 0; height: 100%; position: absolute;'; document.body.appendChild(a);`)
+            }
+            if (script == "selenite"){
+              editor.getDoc().setValue(`var a = document.createElement("iframe"); a.src = 'https://lets.just.undo.it/projects.html'; a.style='top: 0; left: 0; width: 100%; outline: none; border: 0; height: 100%; position: absolute;'; document.body.appendChild(a);`)
+            }
+            if (script == "minecraft"){
+              editor.getDoc().setValue(`var a = document.createElement("iframe"); a.src = 'https://d1tm91r4ytbt54.cloudfront.net/2779cbcb-a02f-48a3-9e2e-95a8d123d165/1685483461665/web/index.html'; a.style='top: 0; left: 0; width: 100%; outline: none; border: 0; height: 100%; position: absolute;'; document.body.appendChild(a);`)
+            }
+            if (script == "win11"){
+              editor.getDoc().setValue(`var a = document.createElement("iframe"); a.src = 'https://main.d2tpr7wl2xnwjr.amplifyapp.com/win11/index.html'; a.style='top: 0; left: 0; width: 100%; outline: none; border: 0; height: 100%; position: absolute;'; document.body.appendChild(a);`)
+            }
+            if (script == "doge"){
+              editor.getDoc().setValue(`var doge = document.createElement("iframe"); doge.src = "https://doge.is.the.man.hardchromesolution.com/"; doge.style = "top: 0; left: 0; position: absolute; width: 100%; height: 100%; border: 0; outline: 0;"; document.body.appendChild(doge);`)
+            }
+            if (script == "abyss"){
+              editor.getDoc().setValue(`var doge = document.createElement("iframe"); doge.src = "https://rider.idialup.co.za/"; doge.style = "top: 0; left: 0; position: absolute; width: 100%; height: 100%; border: 0; outline: 0;"; document.body.appendChild(doge);`)
+            }
+            if (script == "emerald"){
+              editor.getDoc().setValue(`var doge = document.createElement("iframe"); doge.src = "https://big-bang-textbook.us.to/"; doge.style = "top: 0; left: 0; position: absolute; width: 100%; height: 100%; border: 0; outline: 0;"; document.body.appendChild(doge);`)
+            }
+            if(script == "breeze"){
+              editor.getDoc().setValue(`var breeze = "https://d51schools-learning.glitch.me/"; window.open(breeze);`)
+            }
+            sidebar2.style.opacity = 0;
+            sidebar2.style.pointerEvents = 'none';
+            opened = false;
+          }
+      
+          var opened = false;
+          function openscripthub(){
+            if(opened == false){
+              opened = true;
+              sidebar2.style.opacity = 1;
+              sidebar2.style.pointerEvents = "all";
+            } else {
+              opened = false;
+              sidebar2.style.opacity = 0;
+              sidebar2.style.pointerEvents = "none";
+            }
+          }
+      
+          var notloggedin = document.getElementById("notloggedin");
+          var loggedinmenu = document.getElementById("loggedin");
+          if(localStorage.getItem("loggedin") == 1){
+            notloggedin.remove()
+          }
+          function openpremium(){
+            premiummenu.style.opacity = 1;
+            premiummenu.style.pointerEvents = "all";
+            if(localStorage.getItem("loggedin") == 0){
+              notloggedin.style.opacity = 1;
+              notloggedin.style.pointerEvents = "all";
+              loggedinmenu.style.opacity = 0;
+              loggedinmenu.style.pointerEvents = "none";
+            } else {
+              loggedinmenu.style.opacity = 1;
+              loggedinmenu.style.pointerEvents = "all";
+            }
+          }
+      
+          function closepremium(){
+            premiummenu.style.opacity = 0;
+            premiummenu.style.pointerEvents = "none";
+            if(localStorage.getItem("loggedin") == 1){
+              loggedinmenu.style.pointerEvents = "none";
+            } else {
+              notloggedin.style.pointerEvents = "none";
+              loggedinmenu.style.pointerEvents = "none";
+            }
+      
+          }
+      
+          function promptlicense(){
+            closepremium()
+            licenseprompt.style.opacity = 1;
+            licenseprompt.style.pointerEvents = "all";
+          }
+      
+          function closepromptlicense(){
+            licenseprompt.style.opacity = 0;
+            licenseprompt.style.pointerEvents = "none";
+          }
+      
+          var unblockerdropdown = document.getElementById("unblockerdropdown")
+          function leaveChange(){
+            if (unblockerdropdown.value == 1){
+              unblockerdropdown.style.color = "white";
+              unblockerdropdown.style.backgroundImage = "url('https://externalapps.replit.app/scripts/doge1.png')"
+            }
+            if (unblockerdropdown.value == 2){
+              unblockerdropdown.style.backgroundColor = "white";
+              unblockerdropdown.style.color = "white";
+              unblockerdropdown.style.backgroundImage = "url('https://externalapps.replit.app/scripts/rammerhead1.png')"
+            }
+            if (unblockerdropdown.value == 3){
+              unblockerdropdown.style.backgroundColor = "white";
+              unblockerdropdown.style.color = "white";
+              unblockerdropdown.style.backgroundImage = "url('https://externalapps.replit.app/scripts/asteroid1.png')";
+            }
+            if (unblockerdropdown.value == 4){
+              unblockerdropdown.style.color = "white";
+              unblockerdropdown.style.backgroundImage = "url('https://big-bang-textbook.us.to/emerald.png')";
+              unblockerdropdown.style.backgroundColor = "white";
+            }
+          }
+      
+          function executeUnblocker(){
+            if (unblockerdropdown.value == 1){
+              var win = window.open('about:blank');
+              var script = document.createElement('script');
+              script.textContent = `var doge = document.createElement("iframe"); doge.src = "https://doge.is.the.man.hardchromesolution.com/"; doge.style = "top: 0; left: 0; position: absolute; width: 100%; height: 100%; border: 0; outline: 0;"; document.body.appendChild(doge);`
+              win.document.head.appendChild(script)
+            }
+            if (unblockerdropdown.value == 2){
+              var win = window.open('about:blank');
+              var script = document.createElement('script');
+              script.textContent = `var a = document.createElement("iframe"); a.src = 'https://txhistorians.gotoinfo.ch/'; a.style='top: 0; left: 0; width: 100%; outline: none; border: 0; height: 100%; position: absolute;'; document.body.appendChild(a);`
+              win.document.head.appendChild(script)
+            }
+            if (unblockerdropdown.value == 3){
+              var win = window.open('about:blank');
+              var script = document.createElement('script');
+              script.textContent = `var doge = document.createElement("iframe"); doge.src = "https://notowers.us.to/"; doge.style = "top: 0; left: 0; position: absolute; width: 100%; height: 100%; border: 0; outline: 0;"; document.body.appendChild(doge);` 
+              win.document.head.appendChild(script)
+            }
+            if (unblockerdropdown.value == 4){
+              var win = window.open('about:blank');
+              var script = document.createElement('script');
+              script.textContent = `var doge = document.createElement("iframe"); doge.src = "https://big-bang-textbook.us.to/"; doge.style = "top: 0; left: 0; position: absolute; width: 100%; height: 100%; border: 0; outline: 0;"; document.body.appendChild(doge);` 
+              win.document.head.appendChild(script)
+            }
+          }
+      
+      
+          function coolmathgames(){
+            var win = window.open('about:blank');
+            var script = document.createElement('script');
+            script.textContent = `var doge = document.createElement("iframe"); doge.src = "https://metaverse.undo.it/pa/_aHR0cHM6Ly93d3cuY29vbG1hdGhnYW1lcy5jb20=_/"; doge.style = "top: 0; left: 0; position: absolute; width: 100%; height: 100%; border: 0; outline: 0;"; document.body.appendChild(doge);` 
+            win.document.head.appendChild(script)
+          }
+          function crazygamess(){
+            var win = window.open('about:blank');
+            var script = document.createElement('script');
+            script.textContent = `var doge = document.createElement("iframe"); doge.src = "https://notowers.us.to/service/hvtrs8%2F-wuw%2Ccpaxyeaoeq.aoo%2F"; doge.style = "top: 0; left: 0; position: absolute; width: 100%; height: 100%; border: 0; outline: 0;"; document.body.appendChild(doge);` 
+            win.document.head.appendChild(script)
+          }
+          function cookieclicker(){
+            var win = window.open('about:blank');
+            var script = document.createElement('script');
+            script.textContent = `var doge = document.createElement("iframe"); doge.src = "https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/bobydob/JSEngine@e7d53b913d54429e5e118ca9541fb0f8f1f66bdc/dist/cc.xml&container=ig"; doge.style = "top: 0; left: 0; position: absolute; width: 100%; height: 100%; border: 0; outline: 0;"; document.body.appendChild(doge);` 
+            win.document.head.appendChild(script)
+          }
+          function pizzatower(){
+            var win = window.open('about:blank');
+            var script = document.createElement('script');
+            script.textContent = `var doge = document.createElement("iframe"); doge.src = "https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://184025835-163385710482638103.preview.editmysite.com/uploads/b/139890129-716705991685705292/files/pztr.xml&container=ig"; doge.style = "top: 0; left: 0; position: absolute; width: 100%; height: 100%; border: 0; outline: 0;"; document.body.appendChild(doge);` 
+            win.document.head.appendChild(script)
+          }
+          function fnf(){
+            var win = window.open('about:blank');
+            var script = document.createElement('script');
+            script.textContent = `var doge = document.createElement("iframe"); doge.src = "https://lets.just.undo.it/semag/fridaynightfunkin/index.html"; doge.style = "top: 0; left: 0; position: absolute; width: 100%; height: 100%; border: 0; outline: 0;"; document.body.appendChild(doge);` 
+            win.document.head.appendChild(script)
+          }
+          function gd(){
+            var win = window.open('about:blank');
+            var script = document.createElement('script');
+            script.textContent = `var doge = document.createElement("iframe"); doge.src = "https://lets.just.undo.it/semag/gdlite/index.html"; doge.style = "top: 0; left: 0; position: absolute; width: 100%; height: 100%; border: 0; outline: 0;"; document.body.appendChild(doge);` 
+            win.document.head.appendChild(script)
+          }
+          function selenite(){
+            var win = window.open('about:blank');
+            var script = document.createElement('script');
+            script.textContent = `var doge = document.createElement("iframe"); doge.src = "https://lets.just.undo.it/projects.html"; doge.style = "top: 0; left: 0; position: absolute; width: 100%; height: 100%; border: 0; outline: 0;"; document.body.appendChild(doge);` 
+            win.document.head.appendChild(script)
+          }
+          function aster(){
+            var win = window.open('about:blank');
+            var script = document.createElement('script');
+            script.textContent = `var doge = document.createElement("iframe"); doge.src = "https://west.somenews.co.uk/games.html"; doge.style = "top: 0; left: 0; position: absolute; width: 100%; height: 100%; border: 0; outline: 0;"; document.body.appendChild(doge);` 
+            win.document.head.appendChild(script)
+          }
+      
+          // APPS
+      
+          function discord(){
+            var win = window.open('about:blank');
+            var script = document.createElement('script');
+            script.textContent = `var doge = document.createElement("iframe"); doge.src = "https://notowers.us.to/service/hvtrs8%2F-dksaopd%2Ccmm"; doge.style = "top: 0; left: 0; position: absolute; width: 100%; height: 100%; border: 0; outline: 0;"; document.body.appendChild(doge);` 
+            win.document.head.appendChild(script)
+          }
+          function netflix(){
+            var win = window.open('about:blank');
+            var script = document.createElement('script');
+            script.textContent = `var doge = document.createElement("iframe"); doge.src = "https://notowers.us.to/service/hvtrs8%2F-wuw%2Cngtdlkx%2Ccmm-"; doge.style = "top: 0; left: 0; position: absolute; width: 100%; height: 100%; border: 0; outline: 0;"; document.body.appendChild(doge);` 
+            win.document.head.appendChild(script)
+          }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+          var license = document.getElementById("licenseinput");
+          function checkLicenseKey(){
+            if (license.value == "ACE135-JOSE"){
+              alert("Successfully Logged In! thx for purchasing early!")
+              closepromptlicense()
+              localStorage.setItem("loggedin", 1)
+              window.location.reload()
+            } else if(license.value == "YU8AX0-STEPHEN"){
+              alert("Successfully Logged In! thx for purchasing early!")
+              closepromptlicense()
+              localStorage.setItem("loggedin", 1)
+              window.location.reload()
+            } else if(license.value == "OWNER-6233"){
+              alert("Successfully Logged In! hi dax")
+              closepromptlicense()
+              localStorage.setItem("loggedin", 1)
+              window.location.reload()
+            } else if(license.value == "72FF21-HUNTER"){
+              alert("Successfully Logged In!")
+              closepromptlicense()
+              localStorage.setItem("loggedin", 1)
+              window.location.reload()
+            } else if(license.value == "G22SMX-KELBY"){
+              alert("Successfully Logged In!")
+              closepromptlicense()
+              localStorage.setItem("loggedin", 1)
+              window.location.reload()
+            } else if(license.value == "65FF3D-OLIVER"){
+              alert("Successfully Logged In!")
+              closepromptlicense()
+              localStorage.setItem("loggedin", 1)
+              window.location.reload()
+            } else {
+              alert("Invalid License Key!")
+              closepromptlicense()
+            }
+          }
+        </script>
+      </body>
+    ]]>
+  </Content>
+</Module>
